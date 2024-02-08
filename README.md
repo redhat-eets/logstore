@@ -18,7 +18,7 @@ go run main.go --kubeconfig ~/kubeconfig-puffin  --duration 100s --output ./logs
 
 To get logs for a different container you must specify the namespace, pod, and container. The namespace and pod name can be file globs to handle auto-generated names:
 ```shell
-go run main.go --kubeconfig ~/kubeconfig-puffin --duration 100s --output ./logs.log --namespace openshift-network-operator --pod network-operator-* --container network-operator
+go run main.go --kubeconfig ~/kubeconfig-puffin --duration 100s --output ./logs.log --namespace 'openshift-network-operator' --pod 'network-operator-*' --container network-operator
 ```
 
 ## Limitations
