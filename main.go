@@ -280,6 +280,13 @@ func main() {
 		flag.Usage()
 		os.Exit(1)
 	}
+	if nsGlob != defaultNamespace || podGlob != defaultPod || containerName != defaultContainer {
+		if nsGlob == defaultNamespace || podGlob == defaultPod || containerName == defaultContainer {
+			log.Error("You must specify all three (or none) of 'namespace', 'pod', and 'container'")
+			flag.Usage()
+			os.Exit(1)
+		}
+	}
 
 	sinceTime := time.Now().Add(-logWindow)
 	log.Infof("Getting logs since %s", sinceTime)
